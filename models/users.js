@@ -9,6 +9,5 @@ telp : {type:String,required :true},
 adresse : {type:String,required :true},
 email  : {type:String,required :true},
 password  : {type:String,required :true},
-nbrVote: {type:Number}
 })
 module.exports=mongoose.model('user',userSchema);

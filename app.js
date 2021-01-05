@@ -9,7 +9,7 @@ var cron =require('node-cron');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var sondageRouter = require('./routes/sondage');
+
 var loginRouter=require('./routes/login')
 
 var app = express();
@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/sondages', sondageRouter);
+
 app.use('/logins',loginRouter);
 
 // catch 404 and forward to error handler
@@ -56,7 +56,7 @@ cron.schedule('0 0 0 * * *', () => {
 var mongoDB ='mongodb://127.0.0.1/ExmenNode';
 mongoose.connect(mongoDB,{useNewUrlParser:true,useUnifiedTopology:true}).then(
   ()=>{console.log("connected to db");
-  app.listen(3000);
+  app.listen(3001);
 }
 ).catch(err=>{8 
   console.log(err);

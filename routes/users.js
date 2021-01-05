@@ -4,15 +4,7 @@ var User = require('../models/users');
 
 
 router.post('/addUser',(req, res, next) => {
-  const user = new User({
-    firstName : req.body.firstName,
-    lastName : req.body.lastName,
-    telp : req.body.telp,
-    adresse :req.body.adresse,
-    email  : req.body.email,
-    password  : req.body.password,
-    nbrVote:0,
-  })
+  const user = new User(req.body)
 
   user.save().then((u) => {
     console.log("user created");
