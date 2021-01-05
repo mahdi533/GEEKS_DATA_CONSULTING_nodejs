@@ -84,10 +84,27 @@ router.get('/getSondageById/:id' , (req, res) => {
    }).catch(err => {
      console.log(err);
    });
- 
-
- 
  })
- 
-
+ router.get("/getMySondage/:id", async (req,res,next)=>{
+  Sondage.find({idUser:req.params.id}).then((u) => {
+    console.log(u);
+    res.status(200).json({
+      message: "all users",
+      sondage: u
+    })
+  }).catch(err => {
+    console.log(err);
+  }); 
+});
+router.get("/getAllVote/", async (req,res,next)=>{
+  Sondage.count({choix:true}).then((u) => {
+    console.log(u);
+    res.status(200).json({
+      message: "all users",
+      sondage:  u
+    })
+  }).catch(err => {
+    console.log(err);
+  }); 
+});
 module.exports = router;
